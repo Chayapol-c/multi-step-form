@@ -19,7 +19,7 @@ const PersonalInfoSchema = Yup.object().shape({
 
 function FormStep1() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
-  const formik = useFormik({
+  const {values, touched, handleSubmit, handleChange, handleBlur, errors} = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -28,7 +28,7 @@ function FormStep1() {
     onSubmit: () => {
       setCurrentStep(2);
     },
-    // validationSchema: PersonalInfoSchema,
+    validationSchema: PersonalInfoSchema,
   });
 
   return (
@@ -36,34 +36,37 @@ function FormStep1() {
       <FormLayout
         title="personal info"
         description="Please provide your name, email address, and phone number."
-        onSubmit={formik.handleSubmit}
+        onSubmit={handleSubmit}
       >
         <FormInput
           label="name"
           fieldName="name"
-          modelValue={formik.values.name}
-          handleChange={formik.handleChange}
+          modelValue={values.name}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
           type="text"
           placeholder="e.g. Stephen King"
-          errorMessage={formik.errors.name}
+          errorMessage={errors.name && touched.name ? errors.email : ''}
         />
         <FormInput
           label="email address"
           fieldName="email"
-          modelValue={formik.values.email}
-          handleChange={formik.handleChange}
+          modelValue={values.email}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
           type="email"
           placeholder="e.g. stephenking@lorem.com"
-          errorMessage={formik.errors.email}
+          errorMessage={errors.email && touched.email ? errors.email : ''}
         />
         <FormInput
           label="phone number"
           fieldName="phoneNumber"
-          modelValue={formik.values.phoneNumber}
-          handleChange={formik.handleChange}
+          modelValue={values.phoneNumber}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
           type="tel"
           placeholder="e.g. +1 234 567 890"
-          errorMessage={formik.errors.phoneNumber}
+          errorMessage={errors.phoneNumber && touched.phoneNumber ? errors.phoneNumber : ''}
         />
         <FooterMenu primaryBtnMessage="Next Step" />
       </FormLayout>
