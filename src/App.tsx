@@ -26,8 +26,8 @@ function App() {
 
   return (
     <>
-      <main className="flex items-center justify-center min-h-screen">
-        <div className="flex p-4 shadow-lg rounded-lg">
+      <main className="flex md:items-center md:justify-center min-h-screen">
+        <div className="flex sm:w-fit w-full md:flex-row flex-col md:p-4 shadow-lg md:rounded-lg relative">
           <Sidebar />
           {renderForm()}
         </div>

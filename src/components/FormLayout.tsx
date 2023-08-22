@@ -15,7 +15,7 @@ function FormLayout({
 }: FormLayoutProps) {
   return (
     <>
-      <div className="py-8 px-24 min-w-[660px]">
+      <div className="md:py-8 md:px-24 px-8 py-10 md:min-w-[660px] bg-white rounded-md md:m-6 mx-6 mb-32">
         <form onSubmit={onSubmit} className="h-full flex flex-col">
           <header className="mb-8">
             <h1 className="text-3xl font-bold capitalize text-marine-blue mb-2">

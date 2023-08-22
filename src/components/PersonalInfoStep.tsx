@@ -19,17 +19,18 @@ const PersonalInfoSchema = Yup.object().shape({
 
 function PersonalInfoStep() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
-  const {values, touched, handleSubmit, handleChange, handleBlur, errors} = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-    },
-    onSubmit: () => {
-      setCurrentStep(2);
-    },
-    validationSchema: PersonalInfoSchema,
-  });
+  const { values, touched, handleSubmit, handleChange, handleBlur, errors } =
+    useFormik({
+      initialValues: {
+        name: "",
+        email: "",
+        phoneNumber: "",
+      },
+      onSubmit: () => {
+        setCurrentStep(2);
+      },
+      validationSchema: PersonalInfoSchema,
+    });
 
   return (
     <>
@@ -46,7 +47,7 @@ function PersonalInfoStep() {
           handleBlur={handleBlur}
           type="text"
           placeholder="e.g. Stephen King"
-          errorMessage={errors.name && touched.name ? errors.email : ''}
+          errorMessage={errors.name && touched.name ? errors.email : ""}
         />
         <FormInput
           label="email address"
@@ -56,7 +57,7 @@ function PersonalInfoStep() {
           handleBlur={handleBlur}
           type="email"
           placeholder="e.g. stephenking@lorem.com"
-          errorMessage={errors.email && touched.email ? errors.email : ''}
+          errorMessage={errors.email && touched.email ? errors.email : ""}
         />
         <FormInput
           label="phone number"
@@ -66,7 +67,9 @@ function PersonalInfoStep() {
           handleBlur={handleBlur}
           type="tel"
           placeholder="e.g. +1 234 567 890"
-          errorMessage={errors.phoneNumber && touched.phoneNumber ? errors.phoneNumber : ''}
+          errorMessage={
+            errors.phoneNumber && touched.phoneNumber ? errors.phoneNumber : ""
+          }
         />
         <FooterMenu primaryBtnMessage="Next Step" />
       </FormLayout>
