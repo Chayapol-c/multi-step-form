@@ -5,14 +5,14 @@ import { currentStepAtom, planInfoAtom, readWriteAddOns, readCheckedAddOns } fro
 import { useAtom } from "jotai";
 
 function SummaryStep() {
-  const [, setCurrentStep] = useAtom(currentStepAtom);
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom);
   const [addOns] = useAtom(readWriteAddOns)
   const [checkedAddOns] = useAtom(readCheckedAddOns)
   const [planInfo] = useAtom(planInfoAtom);
   const formik = useFormik({
     initialValues: {},
     onSubmit: () => {
-      setCurrentStep(5);
+      setCurrentStep(currentStep + 1);
     },
   });
 

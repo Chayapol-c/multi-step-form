@@ -33,7 +33,7 @@ const planList = [
 ];
 
 function SelectPlanStep() {
-  const [, setCurrentStep] = useAtom(currentStepAtom);
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom);
   const [planInfo, setPlanInfo] = useAtom(planInfoAtom);
   const formik = useFormik({
     initialValues: {
@@ -41,7 +41,7 @@ function SelectPlanStep() {
       isAnnual: planInfo.isAnnual,
     },
     onSubmit: (values) => {
-      setCurrentStep(3);
+      setCurrentStep(currentStep + 1);
       const a = planList.filter((plan) => plan.planName === values.planType)[0];
       setPlanInfo({
         ...planInfo,
@@ -60,7 +60,7 @@ function SelectPlanStep() {
         description="You have the option of monthly or yearly billing."
         onSubmit={formik.handleSubmit}
       >
-        <div className="flex gap-4">
+        <div className="md:flex-row flex flex-col gap-4">
           {planList.map((plan) => (
             <PlanCard
               key={plan.id}

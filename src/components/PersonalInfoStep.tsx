@@ -18,7 +18,7 @@ const PersonalInfoSchema = Yup.object().shape({
 });
 
 function PersonalInfoStep() {
-  const [, setCurrentStep] = useAtom(currentStepAtom);
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom);
   const { values, touched, handleSubmit, handleChange, handleBlur, errors } =
     useFormik({
       initialValues: {
@@ -27,7 +27,7 @@ function PersonalInfoStep() {
         phoneNumber: "",
       },
       onSubmit: () => {
-        setCurrentStep(2);
+        setCurrentStep(currentStep + 1);
       },
       validationSchema: PersonalInfoSchema,
     });

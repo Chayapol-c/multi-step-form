@@ -16,7 +16,7 @@ type AddOns = {
 };
 
 function PickAddOnsStep() {
-  const [, setCurrentStep] = useAtom(currentStepAtom);
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom);
   const [addOns, setAddOns] = useAtom(readWriteAddOns)
 
   const formik: FormikProps<{
@@ -28,7 +28,7 @@ function PickAddOnsStep() {
       addOns: addOns,
     },
     onSubmit: () => {
-      setCurrentStep(4);
+      setCurrentStep(currentStep + 1);
     },
   });
 
