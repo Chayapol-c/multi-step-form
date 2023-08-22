@@ -1,30 +1,27 @@
-import { FormStep1 } from "./components/FormStep1";
+import { PersonalInfoStep } from "./components/PersonalInfoStep";
 import { Sidebar } from "./components/Sidebar";
-import { FormStep2 } from "./components/FormStep2";
-import { FormStep3 } from "./components/FormStep3";
-import { FormStep4 } from "./components/FormStep4";
-import { FormStep5 } from "./components/FormStep5";
+import { SelectPlanStep } from "./components/SelectPlanStep";
+import { PickAddOnsStep } from "./components/PickAddOnsStep";
+import { SummaryStep } from "./components/SummaryStep";
+import { FinishStep } from "./components/FinishStep";
 import { useAtom } from "jotai";
 import { currentStepAtom } from "./atom";
 
+const stepComponents = [
+  PersonalInfoStep,
+  SelectPlanStep,
+  PickAddOnsStep,
+  SummaryStep,
+  FinishStep,
+];
 function App() {
-
-  const [currentStep] = useAtom(currentStepAtom)
+  const [currentStep] = useAtom(currentStepAtom);
   const renderForm = () => {
-    switch (currentStep) {
-      case 1:
-        return <FormStep1 />;
-      case 2:
-        return <FormStep2 />;
-      case 3:
-        return <FormStep3 />;
-      case 4:
-        return <FormStep4 />;
-      case 5:
-        return <FormStep5 />
-      default:
-        return <FormStep1 />;
+    if (currentStep < stepComponents.length) {
+      const CurrentStep = stepComponents[currentStep];
+      return <CurrentStep />;
     }
+    return <></>;
   };
 
   return (

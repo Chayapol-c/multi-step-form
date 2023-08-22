@@ -76,7 +76,7 @@ const readCheckedAddOns = atom(
   (get) => get(addOnsAtom).filter(addOn => addOn.checked),
 )
 
-const currentStepAtom = atom(1)
+const currentStepAtom = atom(0)
 
 export { personalInfoAtom, currentStepAtom, planInfoAtom, readWriteAddOns, readCheckedAddOns }
 export type { PlanInfo }
