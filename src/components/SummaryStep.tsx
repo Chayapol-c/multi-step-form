@@ -4,7 +4,7 @@ import { FooterMenu } from "./FooterMenu";
 import { currentStepAtom, planInfoAtom, readWriteAddOns, readCheckedAddOns } from "../atom";
 import { useAtom } from "jotai";
 
-function FormStep4() {
+function SummaryStep() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
   const [addOns] = useAtom(readWriteAddOns)
   const [checkedAddOns] = useAtom(readCheckedAddOns)
@@ -101,4 +101,4 @@ function FormStep4() {
   );
 }
 
-export { FormStep4 };
+export { SummaryStep };

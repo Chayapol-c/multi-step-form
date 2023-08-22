@@ -1,6 +1,6 @@
 import thankyouIcon from "../assets/images/icon-thank-you.svg";
 
-function FormStep5() {
+function FinishStep() {
   return (
     <>
       <div className="flex flex-col justify-center items-center min-w-[660px]">
@@ -17,4 +17,4 @@ function FormStep5() {
   );
 }
 
-export { FormStep5 };
+export { FinishStep };

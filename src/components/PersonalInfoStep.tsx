@@ -17,7 +17,7 @@ const PersonalInfoSchema = Yup.object().shape({
     .required("This field is required"),
 });
 
-function FormStep1() {
+function PersonalInfoStep() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
   const {values, touched, handleSubmit, handleChange, handleBlur, errors} = useFormik({
     initialValues: {
@@ -74,4 +74,4 @@ function FormStep1() {
   );
 }
 
-export { FormStep1 };
+export { PersonalInfoStep };

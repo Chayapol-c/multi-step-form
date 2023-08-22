@@ -15,7 +15,7 @@ type AddOns = {
   checked: boolean;
 };
 
-function FormStep3() {
+function PickAddOnsStep() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
   const [addOns, setAddOns] = useAtom(readWriteAddOns)
 
@@ -65,4 +65,4 @@ function FormStep3() {
   );
 }
 
-export { FormStep3 };
+export { PickAddOnsStep };

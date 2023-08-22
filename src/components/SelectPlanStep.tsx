@@ -32,7 +32,7 @@ const planList = [
   },
 ];
 
-function FormStep2() {
+function SelectPlanStep() {
   const [, setCurrentStep] = useAtom(currentStepAtom);
   const [planInfo, setPlanInfo] = useAtom(planInfoAtom);
   const formik = useFormik({
@@ -110,4 +110,4 @@ function FormStep2() {
   );
 }
 
-export { FormStep2 };
+export { SelectPlanStep };
